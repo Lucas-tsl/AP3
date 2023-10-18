@@ -1,0 +1,15 @@
+@import url(https://fonts.bunny.net/css?family=open-sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i);
+
+html {
+    font-family: 'open-sans', sans-serif;
+    font-weight: 500;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    color: #424344;
+}
+
+.border-gradient-blue-90 {
+    border: 1px solid transparent;
+    background-image: linear-gradient(90deg, rgba(34, 44, 58, 1), rgba(34, 44, 58, 1)), linear-gradient(90deg, rgba(25, 174, 255, 0.2) 0.3%, rgba(0, 60, 139, 0.2) 32.11%, rgba(28, 169, 245, 0.2) 88.32%);
+    background-clip: padding-box, border-box;
+}
