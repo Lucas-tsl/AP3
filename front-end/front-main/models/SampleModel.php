@@ -45,4 +45,6 @@ class SampleModel extends SQL
         $stmt = $this->getPdo()->prepare("INSERT INTO `votre-table` (col, col2) VALUES (?, ?)");
         return $stmt->execute([$col, $col2]);
     }
+
+    
 }

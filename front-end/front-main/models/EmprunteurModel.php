@@ -71,7 +71,7 @@ class EmprunteurModel extends SQL
                 // Envoi d'un email de validation du compte
                 // On utilise la fonction sendEmail de la classe EmailUtils
                 // L'email contient un lien vers la page de validation du compte, avec l'UUID généré précédemment
-                EmailUtils::sendEmail($email, "Bienvenue $nom", "newAccount",
+                EmailUtils::sendEmail($email, "Bienvenue $nom", "dataMail", // j'ai remplacé newAccount (ancien fichier par datamail)
                     array(
                         "url" => $config["URL_VALIDATION"] . $UUID,
                         "email" => $email,
@@ -113,9 +113,12 @@ class EmprunteurModel extends SQL
          *
          * Il faut :
          * - Vérifier que l'UUID est valide (vérifier que l'utilisateur existe), colonne validationtoken
+         
+
          * - Mettre à jour la colonne validationcompte à 1
          * - Supprimer l'UUID de la colonne validationtoken
          */
+        
 
         /**
          * Rappel

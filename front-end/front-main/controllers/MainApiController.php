@@ -115,6 +115,8 @@ class MainApiController extends ApiController
         }
     }
 
+    
+
     /**
      * Retourne les 5 ressources les plus empruntées.
      */

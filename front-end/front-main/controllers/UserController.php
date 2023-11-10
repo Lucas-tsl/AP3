@@ -5,6 +5,7 @@ namespace controllers;
 use controllers\base\WebController;
 use models\EmprunterModel;
 use models\EmprunteurModel;
+use models\RessourceModel;
 use utils\SessionHelpers;
 use utils\Template;
 
@@ -13,6 +14,7 @@ class UserController extends WebController
     // On déclare les modèles utilisés par le contrôleur.
     private EmprunteurModel $emprunteur; // Modèle permettant d'interagir avec la table emprunteur
     private EmprunterModel $emprunter; // Modèle permettant l'emprunt
+    
 
     function __construct()
     {
@@ -145,7 +147,7 @@ class UserController extends WebController
         // Id à emprunter
         $idRessource = $_POST["idRessource"];
         $idExemplaire = $_POST["idExemplaire"];
-        $titre = $_POST["titre"];
+        
        
 
         // Récupération de l'utilisateur connecté en SESSION.
@@ -156,9 +158,10 @@ class UserController extends WebController
             // Gestion d'erreur à améliorer
             die ("Erreur: utilisateur non connecté ou ids non renseignés");
         }
-
+        
+        
         // On déclare l'emprunt, et on redirige l'utilisateur vers sa page de profil
-        $result = $this->emprunter->declarerEmprunt($idRessource, $idExemplaire, $user->idemprunteur ,$user->emailemprunteur, $titre);
+        $result = $this->emprunter->declarerEmprunt($idRessource, $idExemplaire, $user->idemprunteur ,$user->emailemprunteur);
 
         if ($result) {
             $this->redirect("/me");

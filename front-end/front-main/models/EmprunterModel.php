@@ -23,13 +23,13 @@ class EmprunterModel extends SQL
 
 
      
-    public function declarerEmprunt($idRessource ,$idExemplaire, $idemprunteur,$emailemprunteur, $titre): bool
+    public function declarerEmprunt($idRessource ,$idExemplaire, $idemprunteur,$emailemprunteur): bool
     {
         try {
             $sql = 'INSERT INTO emprunter (idressource, idexemplaire, idemprunteur, datedebutemprunt, dureeemprunt, dateretour) VALUES (?, ?, ?, NOW(), 30, DATE_ADD(NOW(), INTERVAL 1 MONTH))';
             $stmt = parent::getPdo()->prepare($sql);
-            EmailUtils::sendEmail($emailemprunteur, "Votre emprunt ". $titre ."est bien enregistrer ", "dataMail", array("name" => "Wall E"));
-            return $stmt->execute([$idRessource, $idExemplaire, $idemprunteur]);
+            EmailUtils::sendEmail($emailemprunteur, "Votre emprunt " . "est bien enregistrer ", "dataMail", array());
+            return $stmt->execute([$idRessource, $idExemplaire, $idemprunteur, $emailemprunteur]);
         } catch (\PDOException $e) {
             return false;
         }

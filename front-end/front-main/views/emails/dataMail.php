@@ -43,12 +43,12 @@
         <h1>Confirmation d'emprunt</h1>
         <p>Merci d'avoir effectué un emprunt avec succès à la médiathèque. Voici les détails de votre emprunt :</p>
         
-        <ul>
+        <!-- <ul>
             <li><strong>Titre de la ressource :</strong></li>
             <li><strong>Date d'emprunt :</strong></li>
-            <li><strong>Date d'échéance :</strong><?= $ressource->idRessource?> </li>
+            <li><strong>Date d'échéance :</strong> </li>
             <li><strong>Informations de contact de la médiathèque :</strong> </li>
-        </ul>
+        </ul> -->
         
         <p>Si vous avez des questions ou avez besoin d'assistance, n'hésitez pas à nous contacter.</p>
         

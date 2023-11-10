@@ -26,6 +26,8 @@ class RessourceModel extends SQL
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 
+    
+
     public function getLastedRessources(): array
     {
         $sql = 'SELECT * FROM ressource INNER JOIN categorie ON ressource.idcategorie = categorie.idcategorie ORDER BY idressource DESC LIMIT 6;';

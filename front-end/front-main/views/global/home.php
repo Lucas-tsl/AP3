@@ -4,7 +4,8 @@
     <section class="bg-gradient-to-r from-blue-500 to-indigo-600">
         <div class="container mx-auto px-4 py-16">
             <div class="max-w-xl mx-auto text-center">
-                <h1 class="text-5xl font-bold text-white mb-6">Bienvenue à la médiathèque</h1>
+                <h1 class="text-5xl font-bold text-white mb-6">Bienvenue à la Feuilcon</h1> <!-- feuille consulation (différente manière de la lire, interrété par ce que la lecture est une expérience personnelle et diférentes celon les personnes -->
+                
                 <p class="text-xl text-white">Découvrez notre vaste collection de livres, films et musique.</p>
                 <div class="mt-8">
                     <a href="/catalogue/all"
@@ -99,6 +100,8 @@
                     .then(res => res.json()) // Conversion la réponse en JSON (objet JavaScript).
                     .then(data => ressources.value = data) // Mise à jour de la variable ressources (variable réactive).
             }
+
+            
 
             // On appelle la fonction pour récupérer les ressources.
             getRessources();
