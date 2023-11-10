@@ -10,19 +10,16 @@
                 <h1 class="text-3xl font-bold text-gray-900 mb-4">👋 <?= $user->prenomemprunteur ?></h1>
                 <div class="mb-4">
                     <h2 class="text-xl font-semibold text-gray-800 mb-2">Informations personnelles</h2>
-                    <p class="text-gray-600 mb-2"><span
-                                class="font-semibold">Email:</span> <?= $user->emailemprunteur ?></p>
-                    <p class="text-gray-600 mb-2"><span class="font-semibold">Nom:</span> <?= $user->nomemprunteur ?>
-                    </p>
-                    <p class="text-gray-600 mb-2"><span
-                                class="font-semibold">Prénom:</span> <?= $user->prenomemprunteur ?></p>
+                    <p class="text-gray-600 mb-2"><span class="font-semibold">Email:</span> <?= $user->emailemprunteur ?></p>
+                    <p class="text-gray-600 mb-2"><span class="font-semibold"> Téléphone:</span id="TelMasque"> <?= $user->telemprunteur ?></p>
+                    <p class="text-gray-600 mb-2"><span class="font-semibold">Nom:</span> <?= $user->nomemprunteur ?></p>
+                    <p class="text-gray-600 mb-2"><span class="font-semibold">Prénom:</span> <?= $user->prenomemprunteur ?></p>
                 </div>
-
-                <div class="p-5 text-center">
+                <!-- <div class="p-5 text-center">
                     <a class="bg-red-600 text-white hover:bg-red-900 font-bold py-3 px-6 rounded-full" href="/logout">
                         Déconnexion
                     </a>
-                </div>
+                </div> -->
             </div>
         </div>
 

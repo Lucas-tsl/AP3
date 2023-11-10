@@ -29,6 +29,8 @@ class Api
 
         // Retourne toutes les ressources
         Route::Add('/api/catalogue/{type}', [$mainApiController, 'getAllRessources']);
+
+        Route::Add('/api/catalogue/lasted', [$mainApiController, 'getLastedRessources']);
     }
 }
 

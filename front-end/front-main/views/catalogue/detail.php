@@ -25,12 +25,17 @@
                     <form id="exemplaire" method="post" class="text-center pt-5 pb-3" action="/catalogue/emprunter">
                         <input type="hidden" name="idRessource" value="<?= $ressource->idressource ?>">
                         <input type="hidden" name="idExemplaire" value="<?= $exemplaire->idexemplaire ?>">
-                        <button type="submit"
-                                class="bg-indigo-600 text-white hover:bg-indigo-900 font-bold py-3 px-6 rounded-full">
-                            Emprunter
-                        </button>
+                        
+                        
+                    
+                        <?php
+                            if (\utils\SessionHelpers::isLogin()) { ?>
+                                <button type="submit"class="bg-indigo-600 text-white hover:bg-indigo-900 font-bold py-3 px-6 rounded-full">Emprunter</button>        
+                            <?php } 
+                            else { ?>
+                                <a href="/login" class="bg-indigo-600 text-white hover:bg-indigo-900 font-bold py-3 px-6 rounded-full">Se connecter</a>
+                            <?php } ?>
                     </form>
-
                 <?php } ?>
             </div>
         </div>

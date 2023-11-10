@@ -88,6 +88,17 @@ class MainApiController extends ApiController
         }
     }
 
+    function getLastedRessources(): string
+    {
+        $ressources = $this->ressourceModel->getLastedRessources();
+
+        if (!$ressources) {
+            return parent::toJSON([]);
+        } else {
+            return parent::toJSON($ressources);
+        }
+    }
+
     /**
      * Retourne une liste de ressources aléatoires.
      * @param int $limite (optionnel) Nombre de ressources à retourner.

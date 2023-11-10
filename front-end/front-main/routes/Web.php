@@ -21,8 +21,15 @@ class Web
 
         // Appel la méthode « home » dans le contrôleur $main.
         Route::Add('/', [$main, 'home']);
+
+        Route::Add('/about', [$user, 'about']);
+        Route::Add('/contact', [$user, 'contact']);
+        
+
         Route::Add('/exemple', [$main, 'exemple']);
         Route::Add('/exemple2/{parametre}', [$main, 'exemple']);
+
+   
 
 
 
@@ -45,11 +52,16 @@ class Web
             // Page de profil utilisateur.
             Route::Add('/me', [$user, 'me']);
 
+            // // Page À propos
+             Route::Add('/about', [$user, 'about']);
+
             // Action de déconnexion.
             Route::Add('/logout', [$user, 'logout']);
 
             // Action d'emprunt d'une ressource.
             Route::Add('/catalogue/emprunter', [$user, 'emprunter']);
+
+            
         }
 
         // Route permettant l'accès au catalogue.

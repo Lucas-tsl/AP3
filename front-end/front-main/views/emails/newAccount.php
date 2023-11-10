@@ -10,7 +10,7 @@
         Votre compte a bien été créé. Voici vos identifiants de connexion :
     </p>
     <ul>
-        <li><strong>Identifiant : </strong> <?= $email ?></li>
+        <li><strong>Identifiant : </strong> <?= $esmail ?></li>
         <li><strong>Mot de passe : </strong> <?= $password ?></li>
     </ul>
 

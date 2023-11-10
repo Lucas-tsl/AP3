@@ -22,4 +22,5 @@ class ExemplaireModel extends SQL
             return false;
         }
     }
+
 }

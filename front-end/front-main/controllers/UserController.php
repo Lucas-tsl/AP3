@@ -80,7 +80,7 @@ class UserController extends WebController
 
 
         // Gestion de l'inscription
-        if (isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["nom"]) && isset($_POST["prenom"])) {
+        if (isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["tel"]) && isset($_POST["nom"]) && isset($_POST["prenom"])) {
             $result = $this->emprunteur->creerEmprenteur($_POST["email"], $_POST["password"], $_POST["nom"], $_POST["prenom"]);
 
             // Si l'inscription est réussie, on affiche un message de succès
@@ -125,6 +125,15 @@ class UserController extends WebController
         return Template::render("views/user/me.php", array("user" => $user, "emprunts" => $emprunts));
     }
 
+    function about(): string
+    {
+        $user = SessionHelpers::getConnected();
+        // Affichage de la page à  propos
+        return Template::render("views/global/about.php");
+    }
+
+
+
     /**
      * Affiche la page de profil d'un utilisateur.
      * Si l'utilisateur n'est pas connecté, il est redirigé vers la page de connexion.
@@ -136,17 +145,20 @@ class UserController extends WebController
         // Id à emprunter
         $idRessource = $_POST["idRessource"];
         $idExemplaire = $_POST["idExemplaire"];
+        $titre = $_POST["titre"];
+       
 
         // Récupération de l'utilisateur connecté en SESSION.
         $user = SessionHelpers::getConnected();
+        
 
-        if (!$user || !$idRessource || !$idExemplaire) {
+        if (!$user || !$idRessource || !$idExemplaire){
             // Gestion d'erreur à améliorer
             die ("Erreur: utilisateur non connecté ou ids non renseignés");
         }
 
         // On déclare l'emprunt, et on redirige l'utilisateur vers sa page de profil
-        $result = $this->emprunter->declarerEmprunt($idRessource, $idExemplaire, $user->idemprunteur);
+        $result = $this->emprunter->declarerEmprunt($idRessource, $idExemplaire, $user->idemprunteur ,$user->emailemprunteur, $titre);
 
         if ($result) {
             $this->redirect("/me");
@@ -155,5 +167,9 @@ class UserController extends WebController
             die("Erreur lors de l'emprunt");
         }
     }
+    
+
+
+    
 
 }

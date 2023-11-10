@@ -2,7 +2,9 @@
 
 namespace models;
 
+use PDO;
 use models\base\SQL;
+use utils\EmailUtils;
 
 class EmprunterModel extends SQL
 {
@@ -18,11 +20,15 @@ class EmprunterModel extends SQL
      * @param $idemprunteur identifiant de l'emprunteur (lecteur)
      * @return bool true si l'emprunt a été déclaré, false sinon.
      */
-    public function declarerEmprunt($idRessource, $idExemplaire, $idemprunteur): bool
+
+
+     
+    public function declarerEmprunt($idRessource ,$idExemplaire, $idemprunteur,$emailemprunteur, $titre): bool
     {
         try {
             $sql = 'INSERT INTO emprunter (idressource, idexemplaire, idemprunteur, datedebutemprunt, dureeemprunt, dateretour) VALUES (?, ?, ?, NOW(), 30, DATE_ADD(NOW(), INTERVAL 1 MONTH))';
             $stmt = parent::getPdo()->prepare($sql);
+            EmailUtils::sendEmail($emailemprunteur, "Votre emprunt ". $titre ."est bien enregistrer ", "dataMail", array("name" => "Wall E"));
             return $stmt->execute([$idRessource, $idExemplaire, $idemprunteur]);
         } catch (\PDOException $e) {
             return false;

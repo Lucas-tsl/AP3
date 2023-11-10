@@ -7,6 +7,8 @@ use models\ExemplaireModel;
 use models\RessourceModel;
 use utils\Template;
 
+use function PHPSTORM_META\type;
+
 class CatalogueController extends WebController
 {
 
@@ -32,7 +34,10 @@ class CatalogueController extends WebController
 
             // Affichage de la page à l'utilisateur
             return Template::render("views/catalogue/liste.php", array("titre" => "Ensemble du catalogue", "catalogue" => $catalogue));
-        } else {
+            
+        } 
+        
+        else {
             // Les autres types de ressources ne sont pas encore implémentés.
             return $this->redirect("/");
         }
@@ -61,6 +66,8 @@ class CatalogueController extends WebController
         if ($exemplaires && sizeof($exemplaires) > 0) {
             $exemplaire = $exemplaires[0];
         }
+
+        // return Template::render()
 
 
         return Template::render("views/catalogue/detail.php", array("ressource" => $ressource, "exemplaire" => $exemplaire));
